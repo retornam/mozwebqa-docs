@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width">
+
+        <title>Mozwebqa : Selenium Grid</title>
+        <meta name="description" content="Documentation for Mozwebqa Projects">
+
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/syntax.css">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+
+        <div class="container">
+            <div class=row-fluid>
+                <div id=header class=span12>
+                    <h4><a class=brand href="/">Mozwebqa</a>
+    <small>Documentation for Mozwebqa Projects</small>
+</h4>
+
+
+                </div>
+            </div>
+
+            <div class=row-fluid>
+                
+                
+                    <div id=navigation class=span2>
+                        <ul class="nav nav-list">
+    <li><a href="/">Home</a></li>
+    
+        
+        
+
+        
+            
+                <li class=nav-header>Documentation</li>
+            
+            <li data-order=""><a href="/doc/jenkins.html">Jenkins</a></li>
+        
+            
+            <li data-order=""><a href="/doc/selenium-grid.html">Selenium Grid</a></li>
+        
+    
+        
+        
+
+        
+    
+        
+        
+
+        
+    
+        
+        
+
+        
+    
+        
+        
+
+        
+    
+<!-- List additional links. It is recommended to add a divider
+    e.g. <li class=divider></li> first to break up the content. -->
+</ul>
+
+                    </div>
+
+                    <div id=content class=span10>
+                        <div class=page-header>
+    <h2>Selenium Grid
+        
+    </h2>
+</div>
+
+<h1 id="moz-grid-config">moz-grid-config</h1>
+
+<p>moz-grid-config is a project for manaing our Selenium infrastructure. it includes the latest version of Selenium  and a mechanism for starting the hub and nodes.</p>
+
+<h1 id="starting-the-hub">Starting the hub</h1>
+
+<p>Connect using SSH or VNC to selenium.qa.mtv2.mozilla.com and execute the following from a terminal.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">cd ~/moz-grid-config
+ant launch-hub
+</code></pre></div>
+<h1 id="starting-the-os-x-nodes">Starting the OS X nodes</h1>
+
+<p>Connect to each node using SSH or VNC and execute the following froma terminal.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">cd ~/moz-grid-config
+ant launch-node
+</code></pre></div>
+<h1 id="starting-the-windows-nodes">Starting the Windows nodes</h1>
+
+<p>We use the msysgit tool for git on Windows. Run the MsysGit tool from the desktop  and run the following commands</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">cd ~/moz-grid-config
+ant launch-node
+</code></pre></div>
+<h1 id="shutdown">Shutdown</h1>
+
+<p>Connect to the nodes/hub and terminate the running process using CTRL+C  at the Terminal/ MsysGit tool</p>
+
+<h1 id="architecture">Architecture</h1>
+
+<p>We have mac-minis running as Selenium nodes in MTV2 and 6 machines running Windows in SCL3.</p>
+
+<h2 id="mac-mini">Mac-Mini</h2>
+
+<ul>
+<li><p>selenium.qa.mtv2.mozilla.com</p>
+
+<ul>
+<li>IP Address: 10.252.73.143</li>
+<li>OS X 10.7.4, 2.7 GHz Intel Core i7, 8GB</li>
+<li>Jenkins</li>
+<li>Selenium Grid Hub</li>
+</ul></li>
+<li><p>selenium-2.qa.mtv2.mozilla.com ( offline/ cannot be located)</p>
+
+<ul>
+<li>Mac Mini 1.83 Ghz Intel Core 2 Duo 4GB</li>
+<li>Mac OS X  10.6.8</li>
+</ul></li>
+<li><p>selenium-3.qa.mtv2.mozilla.com</p>
+
+<ul>
+<li>IP Address: 10.252.73.196</li>
+<li>2.4 Ghz Intel Core 2 Duo; 4GB</li>
+<li>Mac OS X 10.6.8</li>
+<li>VM: Windows 7 Professional (10.250.7.78)(No longer used after SCL3 switch)</li>
+</ul></li>
+<li><p>selenium-4.qa.mtv2.mozilla.com</p>
+
+<ul>
+<li>IP Address: 10.252.73.197</li>
+<li>Mac Mini; 2.4 Ghz Intel Core 2 Duo; 4 GB</li>
+<li>Mac OS X 10.6.8</li>
+<li>VM: Windows 7 Professional (10.250.4.68)(No longer used after SCL3 switch)</li>
+</ul></li>
+<li><p>qa-selenium5.qa.mtv2.mozilla.com</p>
+
+<ul>
+<li>IP Address: 10.252.73.145</li>
+<li>Mac Mini; 2.66 Ghz Intel Core 2 Duo; 8 GB</li>
+<li>Mac OS X 10.6.8</li>
+<li>VM: Windows 7 Professional (10.250.5.71)(No longer used after SCL3 switch)</li>
+</ul></li>
+<li><p>selenium-6.qa.mtv2.mozilla.com (does not exist/cannot be located)</p>
+
+<ul>
+<li>Mac Mini; 2.53 Ghz Intel Core 2 Duo; 4 GB</li>
+<li>Mac OS X 10.6.8</li>
+<li>VM: Windows 7 Professional (does not exist/cannot be located)</li>
+</ul></li>
+<li><p>selenium-7.qa.mtv2.mozilla.com</p>
+
+<ul>
+<li>IP Address: 10.252.73.9</li>
+<li>Mac OS X 10.7.4, 2.5 GHz Intel Core i5; 4GB 1067 MHz DDR3</li>
+<li>VM: Windows 7 SP1 pro (No longer used after SCL3 switch)</li>
+</ul></li>
+<li><p>selenium1.qa.scl3.mozilla.com</p>
+
+<ul>
+<li>IP Address: 10.22.73.149</li>
+<li>Windows 7, 8 GB RAM, 2 cores, 150GB disk</li>
+</ul></li>
+<li><p>selenium2.qa.scl3.mozilla.com</p>
+
+<ul>
+<li>IP Address: 10.22.73.150</li>
+<li>Windows 7, 8 GB RAM, 2 cores, 150GB disk</li>
+</ul></li>
+<li><p>selenium3.qa.scl3.mozilla.com</p>
+
+<ul>
+<li>IP Address: 10.22.73.151</li>
+<li>Windows 7, 8 GB RAM, 2 cores, 150GB disk</li>
+</ul></li>
+<li><p>selenium4.qa.scl3.mozilla.com</p>
+
+<ul>
+<li>IP Address: 10.22.73.152</li>
+<li>Windows 7, 8 GB RAM, 2 cores, 150GB disk</li>
+</ul></li>
+<li><p>selenium5.qa.scl3.mozilla.com</p>
+
+<ul>
+<li>IP Address: 10.22.73.153</li>
+<li>Windows 7, 8 GB RAM, 2 cores, 150GB disk</li>
+</ul></li>
+<li><p>selenium6.qa.scl3.mozilla.com</p>
+
+<ul>
+<li>IP Address: 10.22.73.154</li>
+<li>Windows 7, 8 GB RAM, 2 cores, 150GB disk</li>
+</ul></li>
+</ul>
+
+<h1 id="node-configuration">Node Configuration</h1>
+
+<p>Since Selenium 2.14.0 was released and allowed both RC and WebDriver nodes to co-exist, each node runs the same configuration of  browser nodes</p>
+
+<h2 id="firefox-version-policy">Firefox version Policy</h2>
+
+<p>On the Mac OS nodes we have:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">* Firefox 24
+* Firefox 28
+* Firefox 29
+</code></pre></div>
+<p>On the Windows 7 nodes we have:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">* IE 11
+* Chrome (latest-version)
+* Firefox 24
+* Firefox 28
+* Firefox 29
+</code></pre></div>
+<h1 id="adding-a-new-browser-environment">Adding a new browser environment</h1>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>You will ned to fork and clone from the moz-grid-config github repository and work on a new branch.</p>
+
+<ul>
+<li>Add the browser, alias and path tho the grid_configuration.yaml file</li>
+<li>Add the browser, binary and details to the JSON configuration files</li>
+<li>Submit a pull request to the main GitHub repository from your branch</li>
+</ul>
+
+<h2 id="hub/nodes">Hub/Nodes</h2>
+
+<ul>
+<li>Prepare Jenkins for shutdown</li>
+<li>Once no jobs are running , shutdown the Selenium grid hub</li>
+<li>Pull in the latest changes from moz-grid-config</li>
+<li>Start the Selenium Grid hub</li>
+<li>For each Selenium node:
+
+<ul>
+<li>Shutdown the Selenium node</li>
+<li>Pull in the latest changes from moz-grid-config</li>
+<li>Install the appropriate browser for the new environment</li>
+<li>Start the Selenium node</li>
+</ul></li>
+</ul>
+
+<h2 id="installing-firefox">Installing Firefox</h2>
+
+<ul>
+<li>All new browsers should be installed with the version number in the path so that moz-grid-config can always find them.</li>
+<li><p>Install mozdownload and mozinstall using pip to download and install the Firefox binaries.</p>
+
+<ul>
+<li><p>use</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">--help
+</code></pre></div>
+<p>for both mozdownload and mozinstall to see all available options</p></li>
+<li><p>to downlod the latest release using mozdownload you can simply use: </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">mozdownlooad -v latest
+</code></pre></div></li>
+<li><p>to download the latest Firefox Nightly build using mozdownload you can use</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">mozdownload -t daily --branch=mozilla-central
+</code></pre></div></li>
+<li><p>to download the latest Firefox Aurora build using mozdownload you can use</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">mozdownload -t daily --branch=mozilla-aurora
+</code></pre></div></li>
+<li><p>releases are also available to download manually here</p></li>
+</ul></li>
+</ul>
+
+<h2 id="mac-os-x">Mac OS X</h2>
+
+<p>From a terminal</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">mozdownload -v 14.0.1 -d /tmp
+mozinstall -d /Applications/ /tmp/firefox-14.0.1.en-US.mac.dmg
+mv /Applications/Firefox.app/ &quot;/Applications/Firefox 14.app/&quot;
+rm /tmp/firefox-14.0.1.en-US.mac.dmg
+</code></pre></div>
+<h2 id="windows">Windows</h2>
+
+<p>From a command prompt:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">mozdownload -v 14.0.1 -d %TMP%
+mozinstall -d %USERPROFILE% %TMP%\firefox-14.0.1.en-US.win32.exe
+move %USERPROFILE%/firefox-14 &quot;\Program Files\Mozilla Firefox 14&quot;
+del %TMP%\firefox-14.0.1.en-US.win32.exe
+</code></pre></div>
+<h1 id="setting-hostname-on-mac-os-x">Setting hostname on Mac OS X</h1>
+
+<p>Shamelessly copied from <a href="http://budporter.net/?p=47">http://budporter.net/?p=47</a></p>
+
+<p>If you are running a version of OSX prior to 10.5, then look in /etc/hostconfig for the HOSTNAME= parameter and set it to be the FQDN (Fully Qualified Domain Name) that you want to use. So, for host foo located in the domain bar.com, the entry would be as follows: </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"> HOSTNAME=foo.bar.com
+</code></pre></div>
+<p>For OSX 10.5, /etc/hostconfig is being deprecated. There are a couple of preferred methods to do this in 10.5</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">sudo hostname -s foo.bar.com
+</code></pre></div>
+<p>or:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">sudo scutil –set HostName foo.bar.com
+</code></pre></div>
+<p>You can verify the change by issuing the following command:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">hostname
+</code></pre></div>
+<p>The output will display the FQDN of the computer.</p>
+
+
+                    </div>
+                
+            </div>
+
+            <div class=row-fluid>
+                <div id=footer class=span12>
+                    Documentation for <a href="https://github.com/mozilla/mozwebqa-docs/">Mozwebqa</a>
+
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function orderNav() {
+                var list,
+                    section,
+                    header,
+                    sections = [],
+                    lists = {},
+                    headers = {};
+
+                var navUl = document.querySelectorAll('#navigation ul')[0],
+                    navLis = document.querySelectorAll('#navigation ul li');
+
+                if (!navUl) return;
+
+                for (var i = 0; i < navLis.length; i++) {
+                    var order, li = navLis[i];
+
+                    if (li.classList.contains('nav-header')) {
+                        section = li.textContent || li.innerText;
+                        sections.push(section);
+                        headers[section] = li;
+                        continue;
+                    }
+
+                    if (!lists[section]) {
+                        lists[section] = [];
+                    }
+
+                    order = parseFloat(li.getAttribute('data-order'))
+                    lists[section].push([order, li]);
+                }
+
+                for (var i = 0; i < sections.length; i++) {
+                    section = sections[i];
+                    list = lists[section].sort(function(a, b) {
+                        return a[0] - b[0];
+                    });
+
+                    if (header = headers[section]) {
+                        navUl.appendChild(header);
+                    }
+                    for (var j = 0; j < list.length; j++) {
+                        navUl.appendChild(list[j][1]);
+                    }
+                }
+            }
+
+            if (document.querySelectorAll) orderNav();
+        </script>
+    </body>
+</html>
